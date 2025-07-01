@@ -74,7 +74,7 @@ apple-replica-react/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/apple-clone-react.git
+   git clone https://github.com/teddy-ctrl/Apple-Clone
    ```
 2. Navigate into the directory:
    ```bash
@@ -88,7 +88,7 @@ apple-replica-react/
    ```bash
    npm start
    ```
-5. Open your browser at `http://localhost:3000`.
+5. Open your browser at `http://localhost:5173/`.
 
 ---
 
@@ -98,15 +98,11 @@ Contributions are welcome! If you'd like to enhance the UI, improve accessibilit
 
 ---
 
-## 📄 License
 
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
-
----
 
 ## 🙋‍♂️ Contact
 
-Have questions or suggestions? Feel free to reach out at [your-email@example.com](mailto:your-email@example.com)
+Have questions or suggestions? Feel free to reach out at [your-tedu@gmail.com]
 
 ---
 
