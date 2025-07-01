@@ -1,0 +1,21 @@
+.donation {
+    padding: 12px 0;
+    background-color: #f5f5f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donate img {
+    max-height: 25px;
+}
+
+.donateText a {
+    color: #06c;
+    font-size: 14px;
+}
+@media (max-width: 991px) {
+  .donate img {
+    margin-bottom: 5px;
+  }
+}

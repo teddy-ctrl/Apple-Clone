@@ -1,0 +1,48 @@
+/* Block: featurePromo */
+.featurePromo {
+    width: auto;
+    max-width: 980px;
+    margin: 40px 20px;
+    background-color: var(--apple-light-gray);
+    border-radius: 24px;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.featurePromo__title {
+    font-size: 48px;
+    font-weight: 600;
+}
+.featurePromo__body { margin-top: 15px; }
+.featurePromo__subtitle {
+    font-size: 21px;
+    margin: 0 auto 20px auto;
+    max-width: 400px;
+}
+.featurePromo__cta {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--apple-blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 980px;
+    font-size: 17px;
+    transition: background-color 0.2s ease-in-out;
+}
+.featurePromo__cta:hover {
+    background-color: #0077ed;
+}
+.featurePromo__imageContainer {
+    margin-top: 50px;
+}
+.featurePromo__image {
+    max-width: 80%;
+    margin: 0 auto;
+}
+/* ... (responsive styles with new names) ... */
+@media (max-width: 768px) {
+    .promo { padding: 40px 20px; margin: 20px; border-radius: 18px; }
+    .promoText { font-size: 32px; }
+    .forYou { font-size: 19px; }
+}

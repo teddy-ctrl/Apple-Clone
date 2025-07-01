@@ -1,0 +1,44 @@
+.hero {
+  height: 692px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 55px;
+}
+
+.hero h2 { font-size: 56px; }
+.hero h3 { font-size: 28px; }
+
+/* Specific Background Images */
+.iphone-16-pro {
+  background-image: url('/images/heroes/hero_iphone16pro_small.jpg');
+}
+.iphone-16 {
+  background-image: url('/images/heroes/hero_iphone16_small.jpg');
+}
+.tv {
+  background-image: url('/images/heroes/hero_severance_small.jpg');
+}
+
+.logoIcon {
+  max-width: 250px;
+  margin: 0 auto 1rem;
+}
+.logoIcon img {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .iphone-16-pro {
+    background-image: url('/images/heroes/hero_iphone16pro_large.jpg');
+  }
+  .iphone-16 {
+    background-image: url('/images/heroes/hero_iphone16_large.jpg');
+  }
+  .tv {
+    background-image: url('/images/heroes/hero_severance_large.jpg');
+  }
+}

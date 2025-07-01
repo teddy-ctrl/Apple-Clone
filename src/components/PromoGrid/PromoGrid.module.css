@@ -1,0 +1,95 @@
+/* --- The Promo Grid Styling --- */
+.promoGrid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 12px;
+  /* padding: 12px 0; */
+}
+
+/* --- Promo Block Base Style --- */
+.hero {
+  min-height: 580px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Main Content Styling --- */
+.title {
+  padding-top: 50px;
+}
+.backDark,
+.border {
+  border-radius: 40px !important;
+  padding: 10px 25px !important;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 5px;
+  border: 1px solid transparent;
+}
+.backDark {
+  background-color: rgb(0, 119, 237);
+  color: #fff;
+}
+.border {
+    border-color: rgb(0, 119, 237);
+}
+.border:hover, .backDark:hover {
+  background-color: rgb(0, 119, 237);
+  color: #fff;
+  text-decoration: none;
+}
+.logoIcone {
+  width: 140px;
+}
+.titleBottom {
+  padding-top: 340px;
+  background-image: linear-gradient(94deg, #0090f7, #ba62fc, #f2416b, #f55600);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* --- Background Image Classes --- */
+.iphone-16-pro { background-image: url(/images/home/hero_iphone16pro_avail__fnf0f9x70jiy_small_2x.jpg); }
+.iphone-16 { background-image: url(/images/home/hero_iphone16_avail__euwzls69btea_small_2x.jpg); }
+.tv { background-image: url(/images/home/hero_severance__ft5kz460h5yu_small_2x.jpg); }
+.watch { background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_small_2x.jpg); }
+.ipad { background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_small_2x.jpg); }
+.macbook { background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_small_2x.jpg); }
+.airpad { background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_small_2x.jpg); }
+.tradein { background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_small.jpg); }
+.card { background-image: url(/images/home/promo_apple_card__5cm7draujpey_small_2x.jpg); }
+
+/* --- Media Queries --- */
+@media (max-width: 767px) {
+  .backDark,
+  .border {
+    font-size: 15px;
+  }
+}
+@media (min-width: 768px) {
+  .promoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .iphone-16-pro { background-image: url(/images/home/hero_iphone16pro_avail__fnf0f9x70jiy_mediumtall_2x.jpg); }
+  .iphone-16 { background-image: url(/images/home/hero_iphone16_avail__euwzls69btea_mediumtall_2x.jpg); }
+  .tv { background-image: url(/images/home/hero_severance__ft5kz460h5yu_mediumtall_2x.jpg); }
+  .watch { background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_medium_2x.jpg); }
+  .ipad { background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_medium_2x.jpg); }
+  .macbook { background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_medium_2x.jpg); }
+  .airpad { background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_medium_2x.jpg); }
+  .tradein { background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_medium_2x.jpg); }
+  .card { background-image: url(/images/home/promo_apple_card__5cm7draujpey_medium_2x.jpg); }
+  
+  .hero { min-height: 692px; }
+  .promoGrid .hero { min-height: 580px; }
+  .iphone-16-pro .title { padding-top: 40px; }
+}
+@media (min-width: 992px) {
+  .iphone-16-pro { background-image: url(/images/home/hero_iphone16pro_avail__fnf0f9x70jiy_large_2x.jpg); }
+  /* ... etc for all other large images ... */
+}
