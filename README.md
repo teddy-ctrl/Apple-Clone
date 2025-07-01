@@ -102,7 +102,7 @@ Contributions are welcome! If you'd like to enhance the UI, improve accessibilit
 
 ## 🙋‍♂️ Contact
 
-Have questions or suggestions? Feel free to reach out at [your-tedu@gmail.com]
+Have questions or suggestions? Feel free to reach out at [tedu@gmail.com]
 
 ---
 

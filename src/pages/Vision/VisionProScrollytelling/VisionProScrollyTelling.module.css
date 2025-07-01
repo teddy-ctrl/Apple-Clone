@@ -1,0 +1,100 @@
+/* The main container that provides the scrollable height */
+.scrollytellingSection {
+    position: relative;
+    /* Height is calculated in the component based on number of scenes */
+}
+
+/* This container sticks to the top of the viewport */
+.stickyContainer {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.videoPlayer {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* A subtle fade when the video source changes */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* This container holds the text and scrolls OVER the sticky video */
+.scrollContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Each 'scene' is a full-height trigger area */
+.scene {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.scene__text {
+    max-width: 580px;
+    padding: 2rem;
+    text-align: center;
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    /* backdrop-filter: blur(15px); */
+    /* -webkit-backdrop-filter: blur(15px); */
+    /* border-radius: 18px; */
+    
+    /* Animation: start transparent and slightly moved down */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Modifier class to make the text visible */
+.scene__text--active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scene__title {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.scene__description {
+    font-size: 21px;
+    margin-top: 0.5em;
+    line-height: 1.4;
+}
+
+/* --- Tablet Responsiveness --- */
+@media (max-width: 1024px) {
+    .scene__text {
+        max-width: 500px;
+    }
+    .scene__title {
+        font-size: 32px;
+    }
+    .scene__description {
+        font-size: 19px;
+    }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 767px) {
+    .scene__text {
+        max-width: calc(100% - 40px); /* Full width with padding */
+        padding: 1.5rem;
+    }
+     .scene__title {
+        font-size: 28px;
+    }
+    .scene__description {
+        font-size: 17px;
+    }
+}
