@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MediaCarousel from '../components/MediaCarousel/MediaCarousel';
 
 
 const PromoBlock = ({
@@ -128,6 +129,7 @@ const HomePage = () => {
           />
         </div>
       </div>
+      <MediaCarousel />
     </div>
   );
 };
