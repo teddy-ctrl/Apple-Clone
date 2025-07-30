@@ -1,0 +1,9 @@
+/* src/components/AccessoriesNav/AccessoriesNav.module.css */
+.navContainer { text-align: center; padding: 40px 22px; border-bottom: 1px solid #e5e5e5; }
+.navContainer h3 { font-size: 40px; font-weight: 600; }
+.searchBar { margin: 20px auto; max-width: 400px; }
+.searchBar input { width: 100%; padding: 12px 20px; border-radius: 980px; border: 1px solid #d2d2d7; font-size: 17px; }
+.categoryNav { margin-top: 30px; }
+.categoryNav h4 { font-size: 14px; color: #6e6e73; }
+.categoryNav ul { display: flex; justify-content: center; gap: 20px; list-style: none; padding: 0; margin-top: 15px; flex-wrap: wrap; }
+.categoryNav a { font-size: 17px; color: #1d1d1f; text-decoration: none; padding: 5px 15px; border-radius: 980px; background: #fafafa; }

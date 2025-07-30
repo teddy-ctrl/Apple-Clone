@@ -1,0 +1,21 @@
+/* src/components/FeatureCard/FeatureCard.module.css */
+.card {
+  background-color: #fafafa;
+  border-radius: 18px;
+  padding: 30px;
+}
+.title {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 3em;
+}
+.link {
+  color: #0071e3;
+  font-size: 14px;
+  text-decoration: none;
+}
+.image {
+  width: 100%;
+  margin-top: 20px;
+}

@@ -1,0 +1,7 @@
+/* src/components/ServicePrograms/ServicePrograms.module.css */
+.programSection { max-width: 980px; margin: 60px auto; padding: 0 22px; text-align: center; }
+.title { font-size: 24px; font-weight: 600; }
+.list { list-style: none; padding: 0; margin: 20px 0; }
+.list li { margin-bottom: 10px; }
+.list a, .seeAll { color: #0071e3; text-decoration: none; font-size: 17px; }
+.seeAll { margin-top: 15px; display: inline-block; }

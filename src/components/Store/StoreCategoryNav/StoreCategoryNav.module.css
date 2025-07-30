@@ -1,0 +1,63 @@
+/* --- 1. Main Container for Centering --- */
+.navContainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #d2d2d7;
+  background-color: #f5f5f7; /* Matches the page background */
+}
+
+/* --- 2. The Scrollable List --- */
+.list {
+  display: flex;
+  justify-content: center; /* Centers items when they don't fill the width */
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0 22px;
+  gap: 30px;
+  max-width: 980px;
+  width: 100%;
+  
+  /* This is the key for mobile responsiveness */
+  overflow-x: auto; 
+  
+  /* --- Hides the default scrollbar --- */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+.list::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+/* --- 3. Individual Link Items --- */
+.item {
+  text-align: center;
+  flex-shrink: 0; /* Prevents items from getting squished on narrow screens */
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  text-decoration: none;
+}
+
+.icon {
+  width: auto;
+  height: 54px; /* Consistent height for all icons */
+  object-fit: contain;
+}
+
+.text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1d1d1f;
+  white-space: nowrap; /* Prevents names like "Apple Watch" from breaking into two lines */
+  transition: color 0.2s ease;
+}
+
+.link:hover .text {
+  color: #0071e3; /* Adds the signature blue hover effect */
+}

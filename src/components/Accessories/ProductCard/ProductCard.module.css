@@ -1,0 +1,8 @@
+/* src/components/ProductCard/ProductCard.module.css */
+.card { background-color: #fafafa; border-radius: 18px; width: 280px; flex-shrink: 0; text-align: center; }
+.imageContainer { padding: 30px; }
+.imageContainer img { max-height: 200px; margin: 0 auto; }
+.content { padding: 20px; }
+.tag { color: #bf4800; font-size: 12px; font-weight: 600; }
+.name { font-size: 17px; font-weight: 600; min-height: 2.5em; }
+.price { font-size: 14px; color: #1d1d1f; }

@@ -1,0 +1,40 @@
+/* src/components/HelpGrid/HelpGrid.module.css */
+.helpSection {
+  padding: 60px 0;
+  background: #fafafa;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 980px;
+  margin: 0 auto;
+  gap: 2px;
+}
+.item {
+  background: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+.icon {
+  height: 40px;
+  margin: 0 auto 15px;
+}
+.title {
+  font-size: 21px;
+  font-weight: 600;
+  margin: 0;
+}
+.text {
+  font-size: 14px;
+  margin: 10px 0 15px;
+}
+.link {
+  color: #0071e3;
+  font-size: 14px;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

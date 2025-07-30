@@ -1,0 +1,168 @@
+/* === HeroBanner.module.css === */
+
+.bannerWrapper {
+  min-height: 692px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: flex-start;
+  /* --- Flexbox is the key to this solution --- */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the content block horizontally */
+  
+ position: relative; /* This is crucial for positioning the video */
+  overflow: hidden; /* Prevents video from spilling out */
+  background-color: #000; /* Fallback color */
+
+  /* Add padding for spacing */
+  padding: 55px 20px 20px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* --- NEW: Background Video Style --- */
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the video */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0; /* Places it in the background */
+}
+
+/* --- NEW: Content Overlay Style --- */
+/* This ensures your text and buttons appear ON TOP of the video */
+.contentOverlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.bannerWrapper h2 {
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.07; /* Tighter line height */
+  letter-spacing: -0.015em; /* Slightly tighter letter spacing */
+  margin-bottom: 4px; /* Creates a small, deliberate gap */
+}
+.bannerWrapper h3 {
+  font-size: 28px;
+  font-weight: 400;
+    line-height: 1.2;
+  letter-spacing: .004em;
+}
+
+.logoWrapper {
+  max-width: 250px;
+  margin: 0 auto 1rem;
+}
+.logoWrapper img {
+  width: 100%;
+}
+
+/* --- 3. Polished Buttons & Links --- */
+/* NEW: A wrapper to control the margin above the buttons */
+.linksWrapper {
+  margin-top: 17px;
+}
+
+/* UPDATED: CTA Links have more precise Apple-like styling */
+.ctaLink {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 17px; /* More standard Apple button font size */
+  font-weight: 400;
+  letter-spacing: -.022em;
+  padding: 11px 21px; /* Tighter padding */
+  border-radius: 980px;
+  margin: 0 7px;
+  border: 1.5px solid transparent; /* Slightly thinner border */
+  transition: all 0.3s ease;
+}
+.primary {
+  background-color: var(--apple-blue);
+  color: #fff;
+}
+.primary:hover {
+  background-color: var(--apple-blue-hover);
+}
+.secondary {
+  border-color: var(--apple-blue);
+  color: var(--apple-blue);
+}
+.secondary:hover {
+  background-color: var(--apple-blue);
+  color: #fff;
+}
+.iphone16pro {
+    /* On larger screens, align its content to the BOTTOM */
+    justify-content: flex-end; 
+
+    /* Adjust its padding for the bottom alignment */
+    padding-top: 0;
+    padding-bottom: 65px;
+     
+  }
+
+
+.tv{
+  justify-content: flex-end;
+  padding-bottom: 65px;
+   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* --- CORRECTED BACKGROUND IMAGE CLASSES --- */
+/* The CSS class names must exactly match the `sectionClass` prop you pass in. */
+/* These paths assume your images are in the `public/images/home` folder. */
+
+.iphone16pro {
+  background-image: url("/images/home/hero_iphone16pro_avail__fnf0f9x70jiy_small_2x.jpg");
+}
+.iphone16 {
+  background-image: url("/images/home/hero_iphone16_avail__euwzls69btea_small_2x.jpg");
+}
+
+
+/* --- CONSOLIDATED & CORRECTED MEDIA QUERIES --- */
+
+@media (min-width: 768px) {
+  
+   .iphone16pro {
+    /* On larger screens, align its content to the BOTTOM */
+    justify-content: flex-start; 
+    padding-top: 0;
+    padding-bottom: 65px; 
+  }
+  
+  /* Update background images for larger screens */
+  .iphone16pro {
+    background-image: url("/images/home/hero_iphone16pro_large.jpg");
+  }
+  .iphone16 {
+    background-image: url("/images/home/hero_iphone16_large.jpg");
+  }
+ 
+}
+
+@media (min-width: 992px) {
+  /* On large screens, use the "large" images */
+  .iphone16pro {
+    background-image: url("/images/home/hero_iphone16pro_avail__fnf0f9x70jiy_large_2x.jpg");
+  }
+  .iphone16 {
+    background-image: url("/images/home/hero_iphone16_avail__euwzls69btea_large_2x.jpg");
+  }
+ 
+}
+
+
+
+
+.ipadProHero { background-image: url("/images/heroes/ipad_pro_hero.jpg"); }

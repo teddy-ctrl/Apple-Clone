@@ -1,0 +1,51 @@
+/* src/components/PromoBanner/PromoBanner.module.css */
+.promoBanner {
+  display: flex;
+  align-items: center;
+  max-width: 980px;
+  margin: 100px auto;
+  padding: 0 22px;
+  gap: 40px;
+}
+.content {
+  flex: 1;
+}
+.imageContainer {
+  flex: 1;
+}
+.eyebrow {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.headline {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+}
+.body {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 15px 0;
+}
+.links {
+  margin-top: 20px;
+}
+.buyButton {
+  background-color: #0071e3;
+  color: #fff;
+  padding: 11px 21px;
+  border-radius: 980px;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.learnMore {
+  color: #0071e3;
+  text-decoration: none;
+  font-size: 17px;
+}
+@media (max-width: 768px) {
+  .promoBanner {
+    flex-direction: column;
+  }
+}

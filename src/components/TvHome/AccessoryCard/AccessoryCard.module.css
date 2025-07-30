@@ -1,0 +1,30 @@
+/* src/components/AccessoryCard/AccessoryCard.module.css */
+.card {
+  background-color: #fafafa;
+  border-radius: 18px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.category {
+  font-size: 21px;
+  font-weight: 600;
+}
+.description,
+.card a {
+  font-size: 14px;
+}
+.card a {
+  color: #0071e3;
+  text-decoration: none;
+}
+.imageContainer {
+  text-align: center;
+  margin-top: 20px;
+}
+.productName {
+  font-size: 12px;
+  color: #6e6e73;
+  margin-top: 10px;
+}

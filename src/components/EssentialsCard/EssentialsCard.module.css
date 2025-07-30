@@ -1,0 +1,30 @@
+.card {
+  background-color: #fafafa;
+  border-radius: 18px;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content {
+  flex-grow: 1;
+}
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+.subtitle {
+  font-size: 17px;
+  margin: 10px 0 15px 0;
+}
+.link {
+  font-size: 17px;
+  color: #0071e3;
+  text-decoration: none;
+}
+.image {
+  max-width: 100%;
+  margin-top: 30px;
+}

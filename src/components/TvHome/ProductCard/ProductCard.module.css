@@ -1,0 +1,11 @@
+/* src/components/ProductCard/ProductCard.module.css */
+.card { border-radius: 18px; padding: 40px; text-align: center; }
+.light { background-color: #fafafa; color: #1d1d1f; }
+.dark { background-color: #000; color: #fff; }
+.content { margin-bottom: 30px; }
+.eyebrow { font-size: 14px; font-weight: 600; margin: 0; }
+.title { font-size: 40px; font-weight: 600; margin: 5px 0 10px; }
+.price { font-size: 14px; margin: 0 0 20px; }
+.buyButton { background-color: #0071e3; color: #fff; padding: 7px 16px; border-radius: 980px; text-decoration: none; margin-right: 15px; }
+.learnMore { color: #0071e3; font-size: 14px; text-decoration: none; }
+.image { max-width: 100%; }

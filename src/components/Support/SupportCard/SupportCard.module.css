@@ -1,0 +1,44 @@
+/* src/components/SupportCard/SupportCard.module.css */
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content {
+  text-align: center;
+}
+.title {
+  font-size: 28px;
+  font-weight: 600;
+}
+.text {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 15px 0;
+}
+.link {
+  color: #0071e3;
+  font-size: 17px;
+  text-decoration: none;
+}
+.button {
+  background: #1d1d1f;
+  color: #fff;
+  border-radius: 980px;
+  padding: 11px 21px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+.imageContainer {
+  margin-top: 30px;
+}
+.imageContainer img {
+  max-width: 100%;
+}
+.card.imageTop {
+  flex-direction: column-reverse;
+} /* Swaps image and text order */

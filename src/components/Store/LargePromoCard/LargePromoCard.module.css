@@ -1,0 +1,49 @@
+/* === LargePromoCard.module.css (Polished Version) === */
+
+.card {
+  width: 400px;
+  height: 500px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  padding: 35px; /* REFINED: Consistent padding */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* For potential future overlays */
+  overflow: hidden;
+}
+
+.light {
+  color: #1d1d1f;
+  background-color: #fff; /* UPDATED: Cards have a white background */
+}
+.dark {
+  color: #fff;
+  background-color: #000;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: #bf4800; /* Apple's standard "offer" color */
+  text-transform: uppercase;
+}
+
+.title {
+  /* UPDATED: More accurate font styling */
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 5px 0;
+}
+
+.price {
+  font-size: 14px;
+  margin-top: 5px;
+}

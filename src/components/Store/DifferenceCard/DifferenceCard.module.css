@@ -1,0 +1,36 @@
+/* === DifferenceCard.module.css (Polished Version) === */
+
+.grid {
+  display: grid;
+  /* UPDATED: Use auto-fit for better responsiveness */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 980px;
+  margin: 40px auto 0;
+  padding: 0 22px;
+}
+
+.card {
+  background: #fff; /* UPDATED: White background to stand out */
+  border-radius: 18px;
+  padding: 30px;
+  min-height: 180px; /* Helps align rows */
+}
+
+.card img {
+  height: 40px; /* REFINED: Icon size */
+  margin-bottom: 15px;
+}
+
+.card h4 {
+  font-size: 21px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1d1d1f;
+}

@@ -1,0 +1,36 @@
+/* === Carousel.module.css (Polished Version) === */
+
+.carouselSection {
+  padding-bottom: 60px; /* Add padding below each carousel */
+}
+
+.header {
+  max-width: 980px;
+  margin: 0 auto 40px; /* REFINED: More space below the header */
+  padding: 0 22px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.subtitle {
+  color: #6e6e73; /* Use the standard subtitle grey */
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  /* REFINED: Use a larger padding value to better hint at off-screen content */
+  padding: 0 max(22px, 5vw); 
+
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}

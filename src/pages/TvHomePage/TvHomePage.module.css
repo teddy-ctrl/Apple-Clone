@@ -1,0 +1,66 @@
+.homePage {
+  background-color: #fff;
+}
+.heroSection {
+  text-align: center;
+  padding: 60px 22px 0;
+}
+.heroTitle {
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0;
+}
+.heroSubtitle {
+  font-size: 19px;
+  max-width: 700px;
+  margin: 20px auto 0;
+  line-height: 1.4;
+}
+.heroImageContainer {
+  margin-top: 40px;
+}
+.heroImageContainer img {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.productGrid,
+.featureGrid,
+.accessoryGrid {
+  display: grid;
+  gap: 20px;
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 22px;
+}
+.productGrid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.featureGrid,
+.accessoryGrid {
+  grid-template-columns: repeat(4, 1fr);
+}
+.section {
+  padding: 100px 0;
+}
+.sectionTitle {
+  font-size: 56px;
+  font-weight: 600;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+@media (max-width: 833px) {
+  .heroTitle {
+    font-size: 48px;
+  }
+  .sectionTitle {
+    font-size: 32px;
+  }
+  .productGrid,
+  .featureGrid,
+  .accessoryGrid {
+    grid-template-columns: 1fr;
+  }
+}

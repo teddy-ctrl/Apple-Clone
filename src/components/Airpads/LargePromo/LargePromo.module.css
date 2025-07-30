@@ -1,0 +1,75 @@
+/* src/components/LargePromo/LargePromo.module.css */
+.promo {
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #1d1d1f;
+  display: flex;
+  flex-direction: column;
+}
+.promo.dark {
+  color: #fff;
+}
+.content {
+  position: absolute;
+  padding: 50px;
+}
+.bottomLeft {
+  bottom: 0;
+  left: 0;
+  text-align: left;
+}
+.bottomCenter {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.title {
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+}
+.subtitle {
+  font-size: 28px;
+  margin: 10px 0 20px;
+}
+.priceInfo {
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.links {
+  margin-top: 25px;
+}
+.learnMore {
+  border: 1px solid;
+  border-radius: 980px;
+  padding: 7px 16px;
+  text-decoration: none;
+  margin-right: 15px;
+}
+.buyButton {
+  background-color: #0071e3;
+  color: #fff;
+  padding: 8px 17px;
+  border-radius: 980px;
+  text-decoration: none;
+}
+.promo.dark .learnMore {
+  border-color: #fff;
+}
+.promo.light .learnMore {
+  border-color: #000;
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 48px;
+  }
+  .subtitle {
+    font-size: 21px;
+  }
+}

@@ -1,0 +1,28 @@
+.entertainmentPage {
+  background-color: #000;
+  color: #fff;
+}
+.heroSection {
+  text-align: center;
+  padding: 80px 22px 100px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.mainTitle {
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.mainSubtitle {
+  font-size: 21px;
+  line-height: 1.4;
+  max-width: 800px;
+  margin: 20px auto 0;
+  color: #a1a1a6;
+}
+@media (max-width: 768px) {
+  .mainTitle { font-size: 48px; }
+  .mainSubtitle { font-size: 19px; }
+}

@@ -1,0 +1,4 @@
+/* src/components/AppleOneFooter/AppleOneFooter.module.css */
+.footer { text-align: center; padding: 60px 22px; background: #fafafa; color: #1d1d1f; }
+.footer h3 { font-size: 40px; font-weight: 600; max-width: 500px; margin: 20px auto; }
+/* Styles for links are similar to ServiceSection .light theme */

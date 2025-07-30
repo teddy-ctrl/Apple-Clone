@@ -5,56 +5,19 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage";
 
 // 1. Import the REAL MacPage component we built
+import StorePage from "./pages/StorePage/StorePage";
+import IpadPage from "./pages/Ipadpage/IpadPage";
+import IphonePage from "./pages/IphonePage/IphonePage";
 import MacPage from "./pages/MacPage/MacPage";
+import WatchPage from "./pages/WatchPage/WatchPage";
 import VisionPage from "./pages/Vision/VisionPage";
-
+import AirPodsPage from "./pages/AirpodsPage/AirpodsPage";
+import TvHomePage from "./pages/TvHomePage/TvHomePage";
+import EntertainmentPage from "./pages/EntertainmentPage/EntertainmentPage";
+import AccessoriesPage from "./pages/AccessoriesPage/AccessoriesPage";
+import SupportPage from "./pages/SupportPage/SupportPage";
 // Placeholder Pages for other routes can remain for now
-const StorePage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>Store</h1>
-  </div>
-);
-const IpadPage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>iPad Page</h1>
-  </div>
-);
-const IphonePage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>iPhone Page</h1>
-  </div>
-);
-const WatchPage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>Watch Page</h1>
-  </div>
-);
 
-const AirPodsPage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>AirPods Page</h1>
-  </div>
-);
-const TvHomePage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>TV & Home Page</h1>
-  </div>
-);
-const EntertainmentPage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>Enterainment Page</h1>
-  </div>
-);
-const AccessoriesPage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>Accessories Page</h1>
-  </div>
-);
-const SupportPage = () => (
-  <div className="container text-center" style={{ paddingTop: "50px" }}>
-    <h1>Support Page</h1>
-  </div>
-);
 
 // ... create other simple pages as needed
 
@@ -74,7 +37,7 @@ function App() {
         <Route path="/watch" element={<WatchPage />} />
         <Route path="/vision" element={<VisionPage />} />
         <Route path="/airpods" element={<AirPodsPage />} />
-        <Route path="/tvhome" element={<TvHomePage />} />
+        <Route path="/tv-home" element={<TvHomePage />} />
         <Route path="/entertainment" element={<EntertainmentPage />} />
         <Route path="/accessories" element={<AccessoriesPage />} />
         <Route path="/support" element={<SupportPage />} />

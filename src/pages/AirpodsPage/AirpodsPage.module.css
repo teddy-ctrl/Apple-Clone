@@ -1,0 +1,17 @@
+.airpodsPage { background-color: #fafafa; }
+.infoBanner { text-align: center; padding: 12px 20px; font-size: 14px; background-color: #fff; }
+.infoBanner a { color: #0071e3; text-decoration: none; }
+.infoBanner a:hover { text-decoration: underline; }
+.section { padding: 100px 0; background-color: #fff; }
+.sectionTitle { font-size: 56px; font-weight: 600; text-align: center; margin: 0 auto 50px; }
+.musicPromo { display: flex; align-items: center; max-width: 980px; margin: 0 auto; gap: 40px; padding: 60px 22px; }
+.musicContent { flex: 1; text-align: center; }
+.musicContent img { margin: 0 auto 15px; }
+.musicContent h3 { font-size: 40px; font-weight: 600; }
+.musicContent a { color: #0071e3; text-decoration: none; font-size: 17px; }
+.musicImage { flex: 1; }
+
+@media (max-width: 768px) {
+  .sectionTitle { font-size: 32px; }
+  .musicPromo { flex-direction: column; }
+}

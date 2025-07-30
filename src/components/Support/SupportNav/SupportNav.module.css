@@ -1,0 +1,5 @@
+/* src/components/SupportNav/SupportNav.module.css */
+.supportNav { display: flex; justify-content: center; padding: 20px 0; }
+.list { display: flex; justify-content: center; gap: 40px; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+.list a { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; color: #1d1d1f; font-size: 12px; }
+.list img { height: 40px; }

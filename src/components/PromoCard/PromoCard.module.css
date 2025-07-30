@@ -1,0 +1,214 @@
+.promoCard {
+  height: 580px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 20px 20px;
+  box-sizing: border-box;
+
+}
+
+.promoCard h2 {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+}
+.promoCard h3 {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: 6px;
+}
+.logoIcone {
+  max-height: 40px;
+  margin-bottom: 5px;
+}
+
+/* Button styles scoped to this component */
+.primary,
+.secondary {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  padding: 11px 21px;
+  border-radius: 980px;
+  margin: 0 7px;
+  border: 1.5px solid transparent;
+  transition: all 0.3s ease;
+}
+.primary {
+  background-color: var(--apple-blue);
+  color: var(--apple-white-text);
+}
+.secondary {
+  border-color: var(--apple-blue);
+  color: var(--apple-blue);
+}
+.promoCard[data-theme="dark"] .secondary {
+  border-color: var(--apple-light-blue-link);
+  color: var(--apple-light-blue-link);
+}
+
+
+/* Bottom content text */
+.bottomContent p{
+   font-size: 19px;
+  font-weight: 400;
+  background-image: linear-gradient(94deg, #0090f7, #ba62fc, #f2416b, #f55600);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80%;
+}
+
+/* UPDATED: CTA Links have more precise Apple-like styling */
+.ctaLink {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 17px; /* More standard Apple button font size */
+  font-weight: 400;
+  letter-spacing: -.022em;
+  padding: 11px 21px; /* Tighter padding */
+  border-radius: 980px;
+  margin: 0 7px;
+  border: 1.5px solid transparent; /* Slightly thinner border */
+  transition: all 0.3s ease;
+}
+.primary {
+  background-color: var(--apple-blue);
+  color: #fff;
+}
+.primary:hover {
+  background-color: var(--apple-blue-hover);
+}
+.secondary {
+  border-color: var(--apple-blue);
+  color: var(--apple-blue);
+}
+.secondary:hover {
+  background-color: var(--apple-blue);
+  color: #fff;
+}
+
+.airpad{
+   justify-content: flex-end; 
+    padding-bottom: 65px;
+     
+}
+/* Background Images (no change needed here, these are content classes) */
+.watch {
+  background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_small_2x.jpg);
+}
+.ipad {
+  background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_small_2x.jpg);
+}
+.macbook {
+  background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_small_2x.jpg);
+}
+.airpad {
+  background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_small_2x.jpg);
+}
+.tradein {
+  background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_small.jpg);
+}
+.card {
+  background-image: url(/images/home/promo_apple_card__5cm7draujpey_small_2x.jpg);
+}
+
+@media (min-width: 768px) {
+  /* Nav bar (no change) */
+  .nav-item {
+    text-align: center !important;
+    padding: 0;
+    border-bottom: 0px;
+  }
+
+  /* Medium Images (no change) */
+  .watch {
+    background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_medium_2x.jpg);
+  }
+  .ipad {
+    background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_medium_2x.jpg);
+  }
+  .macbook {
+    background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_medium_2x.jpg);
+  }
+  .airpad {
+    background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_medium_2x.jpg);
+  }
+  .tradein {
+    background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_medium_2x.jpg);
+  }
+  .card {
+    background-image: url(/images/home/promo_apple_card__5cm7draujpey_medium_2x.jpg);
+  }
+
+  /* UPDATED: Media query height adjustments */
+  /* This rule seems intended for a different, full-width hero, but I will update it */
+  .promoCard {
+    /* Assuming this was a typo and meant to target a different component.
+         If you have a full-width hero banner, that should have the 692px height.
+         The grid items should remain 580px. */
+    /* For now, I'm commenting this out as it conflicts with the base .promoCard height. */
+    /* height: 692px;  */
+  }
+
+  .row .promoCard {
+    height: 580px;
+  }
+
+  /* This rule is likely for a different component, leaving it as is */
+  .iphone-16-pro .title {
+    padding-top: 40px;
+  }
+
+  /* Footer styling (no change) */
+  .my-apple-wrapper {
+    border-bottom: 1px solid #d2d2d7;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Large Images (no change) */
+  .watch {
+    background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_large_2x.jpg);
+  }
+  .ipad {
+    background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_large_2x.jpg);
+  }
+  .macbook {
+    background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_large_2x.jpg);
+  }
+  .airpad {
+    background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_large_2x.jpg);
+  }
+  .tradein {
+    background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_large.jpg);
+  }
+  .card {
+    background-image: url(/images/home/promo_apple_card__5cm7draujpey_large_2x.jpg);
+  }
+}
+
+
+/* Add these to your PromoCard.module.css */
+.macbookAir { background-image: url("/images/promos/macbook_air_promo.jpg"); }
+.iphone16 { background-image: url("/images/promos/iphone_16_promo.jpg"); }
+.specialist { background-image: url("/images/promos/specialist_promo.jpg"); }
+.geniusBar { background-image: url("/images/promos/genius_bar_promo.jpg"); }
+.appleMusic { background-image: url("/images/promos/apple_music_promo.jpg"); }
+.homepod { background-image: url("/images/promos/homepod_promo.jpg"); }
+
+
+
+.ipadProM4 { background-image: url("/images/promos/ipad_m4.jpg"); }
+.ipadProDesign { background-image: url("/images/promos/ipad_design.jpg"); }

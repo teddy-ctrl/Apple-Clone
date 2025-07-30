@@ -1,109 +1,102 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+// Import your custom components
 import MediaCarousel from '../components/MediaCarousel/MediaCarousel';
+import HeroSlider from '../components/HeroSlider/HeroSlider';
 
+// 1. IMPORT BOTH of your specialized components
+import HeroBanner from '../components/Hero/HeroBanner'; // For full-width sections
+import PromoCard from '../components/PromoCard/PromoCard';   // For grid items
 
-const PromoBlock = ({
-  sectionClass,
-  title,
-  subtitle,
-  logoSrc,
-  children,
-  textColor = 'black', 
-  ctaPrimary,
-  ctaSecondary
-}) => {
-  const titleClass = textColor === 'white' ? 'white' : 'black';
-
-  return (
-    <section className={`hero ${sectionClass}`}>
-      <div className="text-center">
-        <div className="title">
-          {logoSrc && <img src={logoSrc} alt="" className="logo-icone mx-auto pb-3" />}
-          {title && <h2 className={titleClass}>{title}</h2>}
-          {subtitle && <h3 className={`pt-1 pb-3 ${titleClass}`}>{subtitle}</h3>}
-          {children}
-        </div>
-        <div className="pt-2">
-          {ctaPrimary && <Link className="back-dark" to={ctaPrimary.to}>{ctaPrimary.text}</Link>}
-          {ctaSecondary && <Link className="border" to={ctaSecondary.to}>{ctaSecondary.text}</Link>}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-
+// This alias is for the grid items only
 const GridPromoBlock = (props) => {
-    return <PromoBlock {...props} />;
+    return <PromoCard {...props} />;
 }
 
+// The main HomePage component
 const HomePage = () => {
   return (
     <div>
-      {/* Full-width Hero Sections */}
-      <PromoBlock
-        sectionClass="iphone-16-pro"
+      {/* =================================================== */}
+      {/* 1. Full-width Hero Sections using HeroBanner      */}
+      {/* =================================================== */}
+
+      <HeroBanner
+        sectionClass="iphone16pro" // This class is defined in HeroBanner.module.css
         title="iPhone 16 Pro"
-        subtitle="Hello, Apple intelligence."
+        subtitle="So Pro. So Smart."
         textColor="white"
-        ctaPrimary={{ text: 'Learn More', to: '/iphone-16-pro' }}
-        ctaSecondary={{ text: 'Buy', to: '/shop/iphone-16-pro' }}
+        links={[
+          { type: 'primary', text: 'Learn More', href: '/iphone-16-pro' },
+          { type: 'secondary', text: 'Buy', href: '/shop/iphone-16-pro' }
+        ]}
       />
 
-      <PromoBlock
-        sectionClass="iphone-16"
+      <HeroBanner
+        sectionClass="iphone16" // This class is defined in HeroBanner.module.css
         title="iPhone 16"
-        subtitle="Hello, Apple Intelligence."
-        textColor="black"
-        ctaPrimary={{ text: 'Learn More', to: '/iphone-16' }}
-        ctaSecondary={{ text: 'Buy', to: '/shop/iphone-16' }}
+        subtitle="A total powerhouse."
+        textColor="white"
+        links={[
+          { type: 'primary', text: 'Learn More', href: '/iphone' },
+          { type: 'secondary', text: 'Buy', href: '/iphone' }
+        ]}
       />
       
-      <PromoBlock
-        sectionClass="tv"
-        logoSrc="/images/icons/hero_logo_severance__3mdz32tyn762_small_2x.png"
+      <HeroBanner
+      sectionClass="tv"
+       videoSrc="https://www.apple.com/105/media/us/home/2025/e69c4c5d-18bd-4bf4-a4d2-ba70ee7bece6/films/visual-intelligence-event/home-visual-intelligence-event-tpl-us-2025_16x9.m3u8"
+        title="Apple Intelligence"
         textColor="white"
-        ctaPrimary={{ text: 'Stream now', to: '/tv-plus/severance' }}
+        links={[
+          { type: 'primary', text: 'Watch the clip', href: '/tv-plus/severance' },
+          { type: 'secondary', text: 'Learn more', href: '/tv-plus' }
+        ]}
       >
-        <p className="white h4">Welcome back.</p>
-        <p className="white h5">Season 2 starts today.</p>
-      </PromoBlock>
+        <p className="white" style={{ fontSize: '21px', marginTop: '10px' }}>
+         Turn a Poster into a Calendar event with visual intelligence.
+        </p>
+      </HeroBanner>
 
-      {/* Grid Sections */}
-      <div className="containers">
-        <div className="promo-grid">
+      {/* =================================================== */}
+      {/* 2. Grid Sections using PromoCard / GridPromoBlock */}
+      {/* =================================================== */}
+      <div className="promo-grid">
+          
+          {/* --- WATCH --- */}
           <GridPromoBlock
-            sectionClass="watch"
-            logoSrc="/images/icons/promo_logo_apple_watch_series_10__qk5vaa89vnm2_small_2x.png"
+            sectionClass="watch" // This class is defined in PromoCard.module.css
+            logoSrc="/images/icons/promo_logo_apple_watch_series_10.png"
             subtitle="Thinstant classic."
             textColor="black"
             ctaPrimary={{ text: 'Learn More', to: '/watch' }}
             ctaSecondary={{ text: 'Buy', to: '/shop/watch' }}
           />
           
+          {/* --- iPAD PRO --- */}
           <GridPromoBlock
-            sectionClass="ipad"
+            sectionClass="ipad" // This class is defined in PromoCard.module.css
             title="iPad Pro"
-            subtitle="Unblievably thin. Incredibly powerful."
+            subtitle="Unbelievably thin. Incredibly powerful."
             textColor="white"
             ctaPrimary={{ text: 'Learn More', to: '/ipad-pro' }}
             ctaSecondary={{ text: 'Buy', to: '/shop/ipad-pro' }}
-          >
-            <p className="title-bottom">Hello, Apple Intelligence.</p>
-          </GridPromoBlock>
+            bottomContent={<p>Hello, Apple Intelligence.</p>}
+          />
 
+          {/* --- MACBOOK --- */}
           <GridPromoBlock
-            sectionClass="macbook"
+            sectionClass="macbook" // This class is defined in PromoCard.module.css
             title="MacBook"
-            subtitle="A work of smart."
-            textColor="black"
+            subtitle="A work of smarts."
+            textColor="white"
             ctaPrimary={{ text: 'Learn More', to: '/macbook' }}
             ctaSecondary={{ text: 'Buy', to: '/shop/macbook' }}
           />
 
+          {/* --- AIRPODS --- */}
           <GridPromoBlock
-            sectionClass="airpad"
+            sectionClass="airpods" // This class is defined in PromoCard.module.css
             title="AirPods"
             subtitle="A new kind of magic."
             textColor="white"
@@ -111,25 +104,32 @@ const HomePage = () => {
             ctaSecondary={{ text: 'Buy', to: '/shop/airpods' }}
           />
 
+          {/* --- TRADE IN --- */}
           <GridPromoBlock
-            sectionClass="tradein"
+            sectionClass="tradein" // This class is defined in PromoCard.module.css
             title="Trade In"
             subtitle="Get $180-$650 in credit when you <br /> trade in iPhone 12 or higher.<sup>2</sup>"
             textColor="black"
             ctaSecondary={{ text: 'Get your estimate', to: '/shop/trade-in' }}
           />
 
+          {/* --- CARD --- */}
           <GridPromoBlock
-            sectionClass="card"
-            logoSrc="/images/icons/logo__dcojfwkzna2q_small_2x.png"
+            sectionClass="card" // This class is defined in PromoCard.module.css
+            logoSrc="/images/icons/logo_apple_card.png"
             subtitle="Get up to 3% Daily Cash Back <br /> with every purchase."
             textColor="black"
             ctaPrimary={{ text: 'Learn More', to: '/apple-card' }}
             ctaSecondary={{ text: 'Apply now', to: '/apple-card/apply' }}
           />
-        </div>
       </div>
+
+      {/* =================================================== */}
+      {/* 3. Other Page Components                        */}
+      {/* =================================================== */}
+      <HeroSlider />
       <MediaCarousel />
+
     </div>
   );
 };

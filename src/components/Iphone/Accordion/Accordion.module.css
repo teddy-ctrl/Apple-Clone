@@ -1,0 +1,59 @@
+.accordion {
+  display: flex;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px;
+  gap: 40px;
+}
+.textColumn {
+  flex: 1;
+}
+.imageColumn {
+  flex: 1;
+}
+.item {
+  border-bottom: 1px solid #d2d2d7;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.icon {
+  width: 12px;
+  height: 12px;
+  border-left: 2px solid #6e6e73;
+  border-bottom: 2px solid #6e6e73;
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+.icon.open {
+  transform: rotate(135deg);
+}
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+.content.open {
+  max-height: 200px; /* Adjust as needed */
+}
+.contentInner {
+  padding: 0 0 20px 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .accordion {
+    flex-direction: column;
+  }
+}

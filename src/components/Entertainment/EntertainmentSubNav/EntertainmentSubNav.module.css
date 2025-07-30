@@ -1,0 +1,66 @@
+/* --- 1. Main Container --- */
+.subNavContainer {
+  /* This dark background matches the hero section of the page */
+  background-color: #000;
+  border-bottom: 1px solid #424245; /* Subtle border for dark theme */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.subNav {
+  max-width: 980px;
+  width: 100%;
+}
+
+/* --- 2. The Scrollable List --- */
+.list {
+  display: flex;
+  justify-content: space-between; /* Spreads items on desktop */
+  align-items: flex-end; /* Aligns to bottom for visual balance */
+  list-style: none;
+  margin: 0;
+  padding: 16px 22px;
+  
+  /* Key for mobile responsiveness */
+  overflow-x: auto; 
+  
+  /* --- Hide the default scrollbar --- */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+.list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* --- 3. Individual Link Items --- */
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  text-decoration: none;
+  flex-shrink: 0;
+  padding: 0 5px;
+}
+
+.icon {
+  height: 25px; /* Controls the size of the icons */
+  filter: brightness(0) invert(1); /* This turns the black SVG icons white */
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8); /* Semi-transparent white text */
+  font-weight: 400;
+  white-space: nowrap; /* Prevents text from wrapping */
+  transition: color 0.2s ease;
+}
+
+.link:hover .icon,
+.link:hover .text {
+  opacity: 1;
+  color: #fff; /* Fully white text on hover */
+}

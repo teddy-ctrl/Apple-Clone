@@ -1,0 +1,56 @@
+.ipadPage {
+  background-color: #fff;
+  color: #1d1d1f;
+}
+
+.heroSection {
+  padding-top: 40px;
+  text-align: center;
+}
+.heroContent {
+  padding: 0 20px;
+}
+.heroTitle {
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+}
+.heroSubtitle {
+  font-size: 24px;
+  margin: 10px auto 0 auto;
+  max-width: 400px;
+}
+.heroImageContainer {
+  margin-top: 50px;
+}
+.heroImage {
+  width: 100%;
+}
+
+.section {
+  padding: 100px 0;
+}
+.sectionTitle {
+  font-size: 56px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+.essentialsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+@media (max-width: 768px) {
+  .heroTitle { font-size: 48px; }
+  .heroSubtitle { font-size: 19px; }
+  .sectionTitle { font-size: 32px; }
+  .essentialsGrid { grid-template-columns: 1fr; }
+}

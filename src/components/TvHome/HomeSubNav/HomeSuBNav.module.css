@@ -1,0 +1,61 @@
+/* --- 1. Main Container --- */
+.subNavContainer {
+  border-bottom: 1px solid #d2d2d7;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.subNav {
+  max-width: 980px;
+  width: 100%;
+}
+
+/* --- 2. The Scrollable List --- */
+.list {
+  display: flex;
+  justify-content: space-between; /* Spreads items across the available width on desktop */
+  align-items: flex-end; /* Aligns items to the bottom for visual consistency */
+  list-style: none;
+  margin: 0;
+  padding: 16px 22px;
+  
+  /* This is the key for mobile responsiveness */
+  overflow-x: auto; 
+  
+  /* --- Hide the default scrollbar --- */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+.list::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+/* --- 3. Individual Link Items --- */
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  flex-shrink: 0; /* Prevents items from squishing */
+  padding: 0 5px; /* Adds a small tappable area around each item */
+}
+
+.icon {
+  height: 28px; /* Controls the size of the icons */
+  margin-bottom: 5px;
+}
+
+.text {
+  font-size: 12px;
+  color: #1d1d1f;
+  font-weight: 400;
+  white-space: nowrap; /* Prevents text like "Apple TV 4K" from wrapping */
+  transition: color 0.2s ease;
+}
+
+.link:hover .text {
+  color: #0071e3; /* Adds a nice hover effect */
+}

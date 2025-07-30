@@ -1,0 +1,39 @@
+/* src/components/StudioPromo/StudioPromo.module.css */
+.studioPromo {
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  border-radius: 18px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+.content {
+  flex: 1;
+  text-align: center;
+  padding: 40px;
+}
+.imageContainer {
+  flex: 1.5;
+}
+.headline {
+  font-size: 40px;
+  font-weight: 600;
+}
+.body {
+  font-size: 17px;
+}
+.ctaButton {
+  display: inline-block;
+  border: 1px solid #0071e3;
+  color: #0071e3;
+  padding: 11px 21px;
+  border-radius: 980px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+@media (max-width: 768px) {
+  .studioPromo {
+    flex-direction: column-reverse;
+  }
+}

@@ -1,13 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+// src/components/Header/Header.jsx (Final Version)
+
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
-const Header = () => {
-    // State to manage the mobile menu's open/closed status
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navRef = useRef(null); // Ref to the nav element for click-outside detection
+// Import the new SVG icon components
+import AppleLogo from '../Icons/AppleLogo';
+import SearchIcon from '../Icons/SearchIcon';
+import BagIcon from '../Icons/BagIcon';
 
-    // Data for navigation links for easier mapping
+const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const navLinksData = [
         { name: 'Store', to: '/store' },
         { name: 'Mac', to: '/mac' },
@@ -22,69 +26,47 @@ const Header = () => {
         { name: 'Support', to: '/support' },
     ];
     
-    // Function to toggle the menu state
     const toggleMenu = () => {
         setIsMenuOpen(prev => !prev);
     };
 
-    // Effect to handle body scroll lock when the menu is open
     useEffect(() => {
         if (isMenuOpen) {
-            document.body.classList.add('no-scroll');
+            document.body.classList.add(styles.noScroll);
         } else {
-            document.body.classList.remove('no-scroll');
+            document.body.classList.remove(styles.noScroll);
         }
-        // Cleanup function to remove the class if the component unmounts
         return () => {
-            document.body.classList.remove('no-scroll');
+            document.body.classList.remove(styles.noScroll);
         };
     }, [isMenuOpen]);
 
-    // Effect to close the menu on window resize to desktop view
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth > 833) {
-                setIsMenuOpen(false);
-            }
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     return (
         <header className={styles.header}>
-            <nav className={styles.nav} ref={navRef}>
+            <nav className={styles.nav}>
                 <div className={styles.logo}>
-                    <Link to="/">
-                        <img
-                            src="https://www.apple.com/ac/globalnav/7/en_US/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_apple_image__b5er5ngrzxqq_large.svg"
-                            alt="Apple Logo"
-                        />
+                    <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                        <AppleLogo className={styles.icon} />
                     </Link>
                 </div>
 
                 <ul className={`${styles.navLinks} ${isMenuOpen ? styles.active : ''}`}>
                     {navLinksData.map((link) => (
                         <li key={link.name}>
-                            {/* Using NavLink could be better for active styling, but Link is fine */}
                             <Link to={link.to} onClick={() => setIsMenuOpen(false)}>{link.name}</Link>
                         </li>
                     ))}
                 </ul>
 
                 <div className={styles.navRight}>
-                    <div className={styles.icons}>
+                    <div className={styles.searchIcon}>
                         <Link to="/search">
-                            <img
-                                src="https://www.apple.com/ac/globalnav/7/en_US/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_search_image__cbllq1gkias2_large.svg"
-                                alt="Search"
-                            />
+                            <SearchIcon className={styles.icon} />
                         </Link>
-                        <Link to="/cart">
-                            <img
-                                src="https://www.apple.com/ac/globalnav/7/en_US/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_bag_image__yzte50i47ciu_large.svg"
-                                alt="Cart"
-                            />
+                    </div>
+                    <div className={styles.bagIcon}>
+                         <Link to="/cart">
+                            <BagIcon className={styles.icon} />
                         </Link>
                     </div>
                     <div className={styles.toggler}>
