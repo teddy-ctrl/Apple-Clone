@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './VisionProScrollytelling.module.css';
+import styles from './VisionProScrollyTelling.module.css';
 
 // Data for each scene: text and video source
 const scenes = [
