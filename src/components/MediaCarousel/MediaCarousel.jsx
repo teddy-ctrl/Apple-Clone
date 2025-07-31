@@ -41,7 +41,7 @@ const dummyMediaData = [
         linkTo: '/tv/ted-lasso'
     },
      {
-        id: '6',
+        id: '7',
         title: 'Ted Lasso',
         posterUrl: '/images/movie/YourFriends&Neighbors.jpg',
         linkTo: '/tv/ted-lasso'
