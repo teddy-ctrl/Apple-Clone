@@ -1,6 +1,4 @@
-/* === Header.module.css (Final Polished Version) === */
-
-/* --- 1. Header & Navigation Base --- */
+/* --- Header Base --- */
 .header {
   background-color: rgba(251, 251, 253, 0.8);
   backdrop-filter: saturate(180%) blur(20px);
@@ -10,7 +8,7 @@
   width: 100%;
   z-index: 1000;
   height: 44px;
-
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .nav {
@@ -20,82 +18,93 @@
   max-width: 980px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 12px;
 }
 
-/* --- 2. Logo, Links, and Icons (Light Theme) --- */
-.logo,
-.navRight {
-  flex-shrink: 0; /* Prevent icons from shrinking */
-
+/* --- Apple Logo --- */
+.logo a {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 8px;
 }
-
-/* --- NEW: Universal Icon Styling --- */
-.icon {
-  height: 44px; /* Set the height of the SVG viewport */
-  fill: #333; /* Set the icon color */
-  transition: fill 0.3s ease;
-  
-  
-}
-.icon:hover {
-  fill: #000; /* Darken icon color on hover */
-}
-/* Specific sizing for each icon */
 .logo .icon {
   width: 14px;
-  
+  height: 14px;
+  fill: currentColor;
+  color: rgba(0, 0, 0, 0.8);
+  transition: color 0.3s ease;
 }
-.searchIcon .icon {
-  width: 15px;
-  
-}
-.bagIcon .icon {
-  width: 14px;
+.logo a:hover .icon {
+  color: #000;
 }
 
-/* --- 3. Desktop Navigation --- */
+/* --- Navigation Links --- */
 .navLinks {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-grow: 1;
-  height: 100%;
-  padding: 0 2em;
   list-style: none;
   margin: 0;
+  padding: 0;
+  gap: 32px; /* same gap Apple uses */
 }
+
 .navLinks li a {
   font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 8px;
   transition: color 0.3s ease;
-  white-space: nowrap; /* Prevent links from wrapping */
 }
 .navLinks li a:hover {
   color: #000;
 }
 
+/* --- Right Section (Search + Bag) --- */
 .navRight {
   display: flex;
   align-items: center;
-  height: 100%;
-  gap: 0.8em;
-}
-.toggler {
-  display: none;
+  gap: 32px; /* exactly like nav links */
 }
 
-/* --- 4. Mobile Responsiveness --- */
+.navRight a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 8px;
+  color: rgba(0, 0, 0, 0.8);
+  transition: color 0.3s ease;
+}
+.navRight a:hover {
+  color: #000;
+}
+
+/* --- Icons same as text --- */
+.icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor; /* inherit from link color */
+}
+
+/* --- Mobile Navigation --- */
 @media (max-width: 833px) {
-  .header {
-    height: 48px;
-  }
   .nav {
     padding: 0 16px;
   }
+
   .navLinks {
     display: none;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     position: fixed;
     top: 48px;
     left: 0;
@@ -104,75 +113,74 @@
     background-color: #fff;
     padding: 20px 0;
     overflow-y: auto;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0;
     opacity: 0;
     transform: translateY(-20px);
     pointer-events: none;
     transition: opacity 0.35s ease, transform 0.35s ease;
   }
+
   .navLinks.active {
     display: flex;
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
+
   .navLinks li {
     width: 100%;
     border-bottom: 1px solid #e5e5e5;
   }
+
   .navLinks li a {
-    padding: 12px 45px;
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 500;
     color: #1d1d1f;
   }
-  .toggler {
+
+  /* Mobile menu toggle */
+  .menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
     display: block;
+    background-color: #1d1d1f;
+    height: 1px;
+    width: 18px;
+    border-radius: 1px;
+    position: relative;
+    transition: all 0.35s ease;
+  }
+  .hamburger::before {
+    transform: translateY(-5px);
+  }
+  .hamburger::after {
+    transform: translateY(4px);
+  }
+  .menuToggle.active .hamburger {
+    background-color: transparent;
+  }
+  .menuToggle.active .hamburger::before {
+    transform: translateY(0px) rotate(45deg);
+  }
+  .menuToggle.active .hamburger::after {
+    transform: translateY(-1px) rotate(-45deg);
   }
 }
 
-/* --- 5. Toggler (Hamburger Menu) Styles --- */
-.menuToggle {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  content: "";
-  display: block;
-  background-color: #1d1d1f;
-  height: 1px;
-  width: 18px;
-  border-radius: 1px;
-  position: relative;
-  transition: all 0.35s ease;
-}
-.hamburger::before {
-  transform: translateY(-5px);
-}
-.hamburger::after {
-  transform: translateY(4px);
-}
-.menuToggle.active .hamburger {
-  background-color: transparent;
-}
-.menuToggle.active .hamburger::before {
-  transform: translateY(0px) rotate(45deg);
-}
-.menuToggle.active .hamburger::after {
-  transform: translateY(-1px) rotate(-45deg);
-}
-
-/* Class to prevent body scrolling when menu is open */
+/* --- Prevent scroll when menu open --- */
 .noScroll {
   overflow: hidden;
 }

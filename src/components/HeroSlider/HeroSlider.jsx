@@ -1,112 +1,180 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './HeroSlider.module.css';
 
-// Data for each slide. This would typically come from a CMS or API.
+// Using the same slide data you provided
 const slideData = [
     {
-        id: 'stick',
-        logoUrl: '/images/movie/FountainofYouts.jpg', // Transparent PNG logo
+        id: 'chief-of-war',
         backgroundUrl: '/images/movie/FountainofYouts.jpg',
-        genre: 'Comedy',
-        description: 'A heartfelt comedy about life and other hazards.',
-        ctaLink: '/tv/stick'
+        ctaLink: '/tv/chief-of-war',
     },
     {
-        id: 'murderbot',
-        logoUrl: '/images/movie/MurDerBot.jpg',
+        id: 'platonic',
         backgroundUrl: '/images/movie/MurDerBot.jpg',
-        genre: 'Sci-Fi',
-        description: 'Some robots are friendly. This one is not.',
-        ctaLink: '/tv/murderbot'
+        ctaText: 'Stream now',
+        genre: 'Comedy',
+        description: 'New season.',
+        ctaLink: '/tv/platonic',
+    },
+    {
+        id: 'see',
+        backgroundUrl: '/images/movie/Stick.jpg',
+        ctaLink: '/tv/see',
     },
     {
         id: 'buccaneers',
-        logoUrl: '/images/movie/Stick.jpg',
-        backgroundUrl: '/images/movie/Stick.jpg',
-        genre: 'Drama',
-        description: 'New money. Old secrets.',
-        ctaLink: '/tv/buccaneers'
+        backgroundUrl: '/images/movie/TedLasso.jpg',
+        ctaLink: '/tv/buccaneers',
     },
-    // Add more slides here...
+    {
+        id: 'foundation',
+        backgroundUrl: '/images/movie/YourFriends&Neighbors.jpg',
+        ctaLink: '/tv/foundation',
+    },
 ];
 
-const HeroSlider = ({ slides = slideData, autoplayInterval = 3000 }) => {
-       const [activeIndex, setActiveIndex] = useState(0);
+const HeroSlider = ({ slides = slideData, autoplayInterval = 5000 }) => {
+    // We start at index 1 because index 0 will be a clone of the last slide.
+    const [activeIndex, setActiveIndex] = useState(1);
     const [isPaused, setIsPaused] = useState(false);
-    const listRef = useRef(null); // Ref for the sliding list
+    const containerRef = useRef(null);
+    const transitionTimeoutRef = useRef(null);
 
-    // Function to move to the next slide
+    // Create a new array with cloned slides at the beginning and end for a seamless loop
+    const extendedSlides = useMemo(() => {
+        if (slides.length === 0) return [];
+        const first = slides[0];
+        const last = slides[slides.length - 1];
+        return [last, ...slides, first];
+    }, [slides]);
+
+    // --- AUTOPLAY AND NAVIGATION ---
     const nextSlide = useCallback(() => {
-        setActiveIndex(prevIndex => (prevIndex + 1) % slides.length);
-    }, [slides.length]);
+        setActiveIndex(prevIndex => prevIndex + 1);
+    }, []);
 
-    // Function to jump to a specific slide
     const goToSlide = (index) => {
-        setActiveIndex(index);
+        // Clear any pending transition to avoid conflicts
+        if (transitionTimeoutRef.current) {
+            clearTimeout(transitionTimeoutRef.current);
+            if (containerRef.current) {
+                 containerRef.current.style.transition = 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+            }
+        }
+        setActiveIndex(index + 1); // Add 1 because of the prepended clone
     };
 
-    // Autoplay logic
     useEffect(() => {
-        if (!isPaused && autoplayInterval > 0) {
+        if (!isPaused) {
             const intervalId = setInterval(nextSlide, autoplayInterval);
             return () => clearInterval(intervalId);
         }
-    }, [activeIndex, isPaused, autoplayInterval, nextSlide]);
+    }, [isPaused, nextSlide, autoplayInterval]);
 
-    // This effect calculates the CSS transform to center the active slide
+
+    // --- SEAMLESS LOOP LOGIC ---
     useEffect(() => {
-        if (listRef.current) {
-            const list = listRef.current;
-            const items = list.children;
-            if (items[activeIndex]) {
-                const item = items[activeIndex];
-                // Calculate the offset needed to center the active item
-                const listWidth = list.offsetWidth;
-                const itemWidth = item.offsetWidth;
-                const itemLeft = item.offsetLeft;
-                
-                // The transform value is the negative of the item's left position,
-                // adjusted by half the list width and half the item width to center it.
-                const transformValue = -(itemLeft - (listWidth / 2) + (itemWidth / 2));
-                list.style.transform = `translateX(${transformValue}px)`;
+        // This effect handles the "jump" when the slider reaches a cloned slide
+        if (activeIndex === 0 || activeIndex === extendedSlides.length - 1) {
+            // After the slide animation finishes (800ms), we perform the jump
+            transitionTimeoutRef.current = setTimeout(() => {
+                if (containerRef.current) {
+                    // 1. Disable the CSS transition for an instant jump
+                    containerRef.current.style.transition = 'none';
+                    // 2. Jump to the corresponding "real" slide
+                    const newIndex = activeIndex === 0 ? slides.length : 1;
+                    setActiveIndex(newIndex);
+
+                    // 3. Re-enable the transition after the jump is rendered
+                    // We use a 0ms timeout to ensure this runs in the next browser paint cycle
+                    setTimeout(() => {
+                        if (containerRef.current) {
+                            containerRef.current.style.transition = 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+                        }
+                    }, 0);
+                }
+            }, 800); // This MUST match the transition duration in your CSS
+        }
+        // Cleanup the timeout if the component unmounts or index changes
+        return () => {
+             if (transitionTimeoutRef.current) {
+                clearTimeout(transitionTimeoutRef.current);
             }
         }
-    }, [activeIndex, slides]); // Re-calculate on index change
+    }, [activeIndex, slides.length, extendedSlides.length]);
 
+
+    // --- SLIDE POSITIONING LOGIC ---
+    useEffect(() => {
+        if (containerRef.current) {
+            const container = containerRef.current;
+            const activeSlide = container.children[activeIndex];
+            if (activeSlide) {
+                const containerWidth = container.parentElement.offsetWidth;
+                const slideWidth = activeSlide.offsetWidth;
+                const slideLeft = activeSlide.offsetLeft;
+                const offset = -(slideLeft - (containerWidth / 2) + (slideWidth / 2));
+                container.style.transform = `translateX(${offset}px)`;
+            }
+        }
+    }, [activeIndex, extendedSlides]);
+
+
+    // --- RENDER ---
     return (
-        <section 
-            className={styles.coverFlowSlider}
+        <section
+            className={styles.heroSlider}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
-            <div className={styles.listWrapper}>
-                <div className={styles.list} ref={listRef}>
-                    {slides.map((slide, index) => (
+            <div className={styles.carousel}>
+                <div className={styles.carouselContainer} ref={containerRef}>
+                    {extendedSlides.map((slide, index) => (
                         <div
-                            key={slide.id}
-                            className={`${styles.slide} ${index === activeIndex ? styles['slide--active'] : ''}`}
-                            onClick={() => goToSlide(index)} // Click on adjacent slide to navigate
+                            key={`${slide.id}-${index}`} // Use index for a unique key for clones
+                            className={`${styles.slide} ${activeIndex === index ? styles.activeSlide : ''}`}
+                            onClick={() => setActiveIndex(index)}
                         >
-                            <img src={slide.backgroundUrl} alt="" className={styles.slide__image} />
-                            <div className={styles.slide__content}>
-                                {/* <img src={slide.logoUrl} alt={`${slide.id} Logo`} className={styles.slide__logo} /> */}
-                                <Link to={slide.ctaLink} className={styles.slide__ctaButton}>Stream now</Link>
-                            </div>
+                            <img src={slide.backgroundUrl} alt={slide.id} className={styles.backgroundImage} />
+                            {activeIndex === index && (
+                                <div className={styles.slideContent}>
+                                    <div className={styles.ctaGroup}>
+                                        <Link to={slide.ctaLink} className={styles.ctaButton}>
+                                            {slide.ctaText || 'Stream now'}
+                                        </Link>
+                                        {slide.genre && (
+                                            <p className={styles.slideDescription}>
+                                                <strong>{slide.genre}</strong> &middot; {slide.description}
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
             </div>
 
             <div className={styles.pagination}>
-                {slides.map((_, index) => (
-                    <button
-                        key={index}
-                        className={`${styles.pagination__dot} ${index === activeIndex ? styles['pagination__dot--active'] : ''}`}
-                        onClick={() => goToSlide(index)}
-                        aria-label={`Go to slide ${index + 1}`}
-                    />
-                ))}
+                {slides.map((_, index) => {
+                    // This logic maps the extended index back to the original index for the dots
+                    let currentRealIndex = activeIndex - 1;
+                    if (activeIndex === 0) {
+                        currentRealIndex = slides.length - 1;
+                    } else if (activeIndex === extendedSlides.length - 1) {
+                        currentRealIndex = 0;
+                    }
+                    const isActive = currentRealIndex === index;
+                    return (
+                        <button
+                            key={index}
+                            className={`${styles.dot} ${isActive ? styles.activeDot : ''}`}
+                            onClick={() => goToSlide(index)}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    );
+                })}
             </div>
         </section>
     );

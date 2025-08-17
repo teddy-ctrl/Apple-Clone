@@ -15,6 +15,12 @@ const PromoCard = ({
   const theme = textColor === 'white' ? 'dark' : 'light';
   const titleClass = textColor === 'white' ? 'white' : 'black';
 
+  // Determine the classes for the secondary button
+  let secondaryCtaClasses = styles.secondary; 
+  if (ctaSecondary && ctaSecondary.textColor === 'white') {
+    secondaryCtaClasses += ` ${styles.secondaryWhite}`;
+  }
+
   return (
     // Uses the .promoCard class from its CSS module
     <section className={`${styles.promoCard} ${styles[sectionClass]}`} data-theme={theme}>
@@ -25,7 +31,13 @@ const PromoCard = ({
         
         <div className="pt-2">
           {ctaPrimary && <Link className={styles.primary} to={ctaPrimary.to}>{ctaPrimary.text}</Link>}
-          {ctaSecondary && <Link className={styles.secondary} to={ctaSecondary.to}>{ctaSecondary.text}</Link>}
+          
+          {/* UPDATED: Now uses the dynamic class list */}
+          {ctaSecondary && (
+            <Link className={secondaryCtaClasses} to={ctaSecondary.to}>
+              {ctaSecondary.text}
+            </Link>
+          )}
         </div>
         
         {bottomContent && (

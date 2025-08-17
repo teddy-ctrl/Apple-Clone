@@ -9,7 +9,6 @@
   align-items: center;
   padding: 56px 20px 20px;
   box-sizing: border-box;
-
 }
 
 .promoCard h2 {
@@ -28,7 +27,7 @@
   margin-bottom: 5px;
 }
 
-/* Button styles scoped to this component */
+/* Button styles */
 .primary,
 .secondary {
   display: inline-block;
@@ -44,20 +43,26 @@
 }
 .primary {
   background-color: var(--apple-blue);
-  color: var(--apple-white-text);
+  color: #fff;
 }
+/* .primary:hover {
+  background-color: var(--apple-blue-hover);
+} */
 .secondary {
   border-color: var(--apple-blue);
   color: var(--apple-blue);
+}
+.secondary:hover {
+  background-color: var(--apple-blue);
+  color: #fff;
 }
 .promoCard[data-theme="dark"] .secondary {
   border-color: var(--apple-light-blue-link);
   color: var(--apple-light-blue-link);
 }
 
-
 /* Bottom content text */
-.bottomContent p{
+.bottomContent p {
    font-size: 19px;
   font-weight: 400;
   background-image: linear-gradient(94deg, #0090f7, #ba62fc, #f2416b, #f55600);
@@ -70,145 +75,84 @@
   margin-top: 80%;
 }
 
-/* UPDATED: CTA Links have more precise Apple-like styling */
-.ctaLink {
-  display: inline-block;
-  text-decoration: none;
-  font-size: 17px; /* More standard Apple button font size */
-  font-weight: 400;
-  letter-spacing: -.022em;
-  padding: 11px 21px; /* Tighter padding */
-  border-radius: 980px;
-  margin: 0 7px;
-  border: 1.5px solid transparent; /* Slightly thinner border */
-  transition: all 0.3s ease;
-}
-.primary {
-  background-color: var(--apple-blue);
-  color: #fff;
-}
-.primary:hover {
-  background-color: var(--apple-blue-hover);
-}
-.secondary {
-  border-color: var(--apple-blue);
-  color: var(--apple-blue);
-}
-.secondary:hover {
-  background-color: var(--apple-blue);
-  color: #fff;
-}
-
-.airpad{
+.airpad {
    justify-content: flex-end; 
     padding-bottom: 65px;
-     
-}
-/* Background Images (no change needed here, these are content classes) */
-.watch {
-  background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_small_2x.jpg);
-}
-.ipad {
-  background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_small_2x.jpg);
-}
-.macbook {
-  background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_small_2x.jpg);
-}
-.airpad {
-  background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_small_2x.jpg);
-}
-.tradein {
-  background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_small.jpg);
-}
-.card {
-  background-image: url(/images/home/promo_apple_card__5cm7draujpey_small_2x.jpg);
 }
 
+/* == Small (Mobile First) Background Images == */
+.watch { background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_small_2x.jpg); }
+.ipad { background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_small_2x.jpg); }
+.macbook { background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_small_2x.jpg); }
+.airpad { background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_small_2x.jpg); }
+.tradein { background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_small.jpg); }
+.card { background-image: url(/images/home/promo_apple_card__5cm7draujpey_small_2x.jpg); }
+
+/* New Cards - Small */
+.macbookAir { background-image: url("/images/promos/macbook_air_promo_small.jpg"); }
+.iphone16 { background-image: url("/images/promos/iphone_16_promo_small.jpg"); }
+.specialist { background-image: url("/images/promos/specialist_promo_small.jpg"); }
+.geniusBar { background-image: url("/images/promos/genius_bar_promo_small.jpg"); }
+.appleMusic { background-image: url("/images/promos/apple_music_promo_small.jpg"); }
+.homepod { background-image: url("/images/promos/homepod_promo_small.jpg"); }
+.ipadProM4 { background-image: url("/images/promos/ipad_m4_small.jpg"); }
+.ipadProDesign { background-image: url("/images/promos/ipad_design_small.jpg"); }
+
+/* == Medium (Tablet) Styles == */
 @media (min-width: 768px) {
-  /* Nav bar (no change) */
-  .nav-item {
-    text-align: center !important;
-    padding: 0;
-    border-bottom: 0px;
-  }
-
-  /* Medium Images (no change) */
-  .watch {
-    background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_medium_2x.jpg);
-  }
-  .ipad {
-    background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_medium_2x.jpg);
-  }
-  .macbook {
-    background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_medium_2x.jpg);
-  }
-  .airpad {
-    background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_medium_2x.jpg);
-  }
-  .tradein {
-    background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_medium_2x.jpg);
-  }
-  .card {
-    background-image: url(/images/home/promo_apple_card__5cm7draujpey_medium_2x.jpg);
-  }
-
-  /* UPDATED: Media query height adjustments */
-  /* This rule seems intended for a different, full-width hero, but I will update it */
-  .promoCard {
-    /* Assuming this was a typo and meant to target a different component.
-         If you have a full-width hero banner, that should have the 692px height.
-         The grid items should remain 580px. */
-    /* For now, I'm commenting this out as it conflicts with the base .promoCard height. */
-    /* height: 692px;  */
-  }
-
   .row .promoCard {
     height: 580px;
   }
 
-  /* This rule is likely for a different component, leaving it as is */
-  .iphone-16-pro .title {
-    padding-top: 40px;
-  }
-
-  /* Footer styling (no change) */
-  .my-apple-wrapper {
-    border-bottom: 1px solid #d2d2d7;
-  }
+  /* Medium Background Images */
+  .watch { background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_medium_2x.jpg); }
+  .ipad { background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_medium_2x.jpg); }
+  .macbook { background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_medium_2x.jpg); }
+  .airpad { background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_medium_2x.jpg); }
+  .tradein { background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_medium_2x.jpg); }
+  .card { background-image: url(/images/home/promo_apple_card__5cm7draujpey_medium_2x.jpg); }
+  
+  /* New Cards - Medium */
+  .macbookAir { background-image: url("/images/promos/macbook_air_promo_medium.jpg"); }
+  .iphone16 { background-image: url("/images/promos/iphone_16_promo_medium.jpg"); }
+  .specialist { background-image: url("/images/promos/specialist_promo_medium.jpg"); }
+  .geniusBar { background-image: url("/images/promos/genius_bar_promo_medium.jpg"); }
+  .appleMusic { background-image: url("/images/promos/apple_music_promo_medium.jpg"); }
+  .homepod { background-image: url("/images/promos/homepod_promo_medium.jpg"); }
+  .ipadProM4 { background-image: url("/images/promos/ipad_m4_medium.jpg"); }
+  .ipadProDesign { background-image: url("/images/promos/ipad_design_medium.jpg"); }
 }
 
+/* == Large (Desktop) Styles == */
 @media (min-width: 992px) {
-  /* Large Images (no change) */
-  .watch {
-    background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_large_2x.jpg);
-  }
-  .ipad {
-    background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_large_2x.jpg);
-  }
-  .macbook {
-    background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_large_2x.jpg);
-  }
-  .airpad {
-    background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_large_2x.jpg);
-  }
-  .tradein {
-    background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_large.jpg);
-  }
-  .card {
-    background-image: url(/images/home/promo_apple_card__5cm7draujpey_large_2x.jpg);
-  }
+  /* Large Background Images */
+  .watch { background-image: url(/images/home/promo_apple_watch_series_10_avail_lte__c70y29goir42_large_2x.jpg); }
+  .ipad { background-image: url(/images/home/promo_ipadpro_avail__s271j89g8kii_large_2x.jpg); }
+  .macbook { background-image: url(/images/home/promo_macbookpro_announce__gdf98j6tj2ie_large_2x.jpg); }
+  .airpad { background-image: url(/images/home/promo_airpods_pro_2_avail__vkitqi3okwie_large_2x.jpg); }
+  .tradein { background-image: url(/images/home/promo_iphone_tradein__bugw15ka691e_large.jpg); }
+  .card { background-image: url(/images/home/promo_apple_card__5cm7draujpey_large_2x.jpg); }
+
+  /* New Cards - Large */
+  .macbookAir { background-image: url("/images/promos/macbook_air_promo_large.jpg"); }
+  .iphone16 { background-image: url("/images/promos/iphone_16_promo_large.jpg"); }
+  .specialist { background-image: url("/images/promos/specialist_promo_large.jpg"); }
+  .geniusBar { background-image: url("/images/promos/genius_bar_promo_large.jpg"); }
+  .appleMusic { background-image: url("/images/promos/apple_music_promo_large.jpg"); }
+  .homepod { background-image: url("/images/promos/homepod_promo_large.jpg"); }
+  .ipadProM4 { background-image: url("/images/promos/ipad_m4_large.jpg"); }
+  .ipadProDesign { background-image: url("/images/promos/ipad_design_large.jpg"); }
 }
 
 
-/* Add these to your PromoCard.module.css */
-.macbookAir { background-image: url("/images/promos/macbook_air_promo.jpg"); }
-.iphone16 { background-image: url("/images/promos/iphone_16_promo.jpg"); }
-.specialist { background-image: url("/images/promos/specialist_promo.jpg"); }
-.geniusBar { background-image: url("/images/promos/genius_bar_promo.jpg"); }
-.appleMusic { background-image: url("/images/promos/apple_music_promo.jpg"); }
-.homepod { background-image: url("/images/promos/homepod_promo.jpg"); }
 
+.promoCard[data-theme="dark"] .secondary.secondaryWhite {
+  border-color: #f5f5f7; /* Apple's standard off-white */
+  color: #f5f5f7;
+}
 
-
-.ipadProM4 { background-image: url("/images/promos/ipad_m4.jpg"); }
-.ipadProDesign { background-image: url("/images/promos/ipad_design.jpg"); }
+/* Hover effect for the white button */
+.promoCard[data-theme="dark"] .secondary.secondaryWhite:hover {
+  background-color: #f5f5f7;
+  color: #1d1d1f; /* Apple's standard dark grey/black */
+}

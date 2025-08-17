@@ -5,10 +5,9 @@ import MediaCarousel from '../components/MediaCarousel/MediaCarousel';
 import HeroSlider from '../components/HeroSlider/HeroSlider';
 
 // 1. IMPORT BOTH of your specialized components
-import HeroBanner from '../components/Hero/HeroBanner'; // For full-width sections
-import PromoCard from '../components/PromoCard/PromoCard';   // For grid items
+import HeroBanner from '../components/Hero/HeroBanner'; 
+import PromoCard from '../components/PromoCard/PromoCard';   
 
-// This alias is for the grid items only
 const GridPromoBlock = (props) => {
     return <PromoCard {...props} />;
 }
@@ -17,12 +16,10 @@ const GridPromoBlock = (props) => {
 const HomePage = () => {
   return (
     <div>
-      {/* =================================================== */}
-      {/* 1. Full-width Hero Sections using HeroBanner      */}
-      {/* =================================================== */}
+
 
       <HeroBanner
-        sectionClass="iphone16pro" // This class is defined in HeroBanner.module.css
+        sectionClass="iphone16pro" 
         title="iPhone 16 Pro"
         subtitle="So Pro. So Smart."
         textColor="white"
@@ -33,7 +30,7 @@ const HomePage = () => {
       />
 
       <HeroBanner
-        sectionClass="iphone16" // This class is defined in HeroBanner.module.css
+        sectionClass="iphone16" 
         title="iPhone 16"
         subtitle="A total powerhouse."
         textColor="white"
@@ -58,14 +55,11 @@ const HomePage = () => {
         </p>
       </HeroBanner>
 
-      {/* =================================================== */}
-      {/* 2. Grid Sections using PromoCard / GridPromoBlock */}
-      {/* =================================================== */}
       <div className="promo-grid">
           
           {/* --- WATCH --- */}
           <GridPromoBlock
-            sectionClass="watch" // This class is defined in PromoCard.module.css
+            sectionClass="watch" 
             logoSrc="/images/icons/promo_logo_apple_watch_series_10.png"
             subtitle="Thinstant classic."
             textColor="black"
@@ -75,38 +69,38 @@ const HomePage = () => {
           
           {/* --- iPAD PRO --- */}
           <GridPromoBlock
-            sectionClass="ipad" // This class is defined in PromoCard.module.css
+            sectionClass="ipad" 
             title="iPad Pro"
             subtitle="Unbelievably thin. Incredibly powerful."
             textColor="white"
             ctaPrimary={{ text: 'Learn More', to: '/ipad-pro' }}
-            ctaSecondary={{ text: 'Buy', to: '/shop/ipad-pro' }}
+            ctaSecondary={{ text: 'Buy', textColor:"white", to: '/shop/ipad-pro' }}
             bottomContent={<p>Hello, Apple Intelligence.</p>}
           />
 
           {/* --- MACBOOK --- */}
           <GridPromoBlock
-            sectionClass="macbook" // This class is defined in PromoCard.module.css
+            sectionClass="macbook" 
             title="MacBook"
             subtitle="A work of smarts."
             textColor="white"
             ctaPrimary={{ text: 'Learn More', to: '/macbook' }}
-            ctaSecondary={{ text: 'Buy', to: '/shop/macbook' }}
+            ctaSecondary={{ text: 'Buy', textColor:"white", to: '/shop/macbook' }}
           />
 
-          {/* --- AIRPODS --- */}
+          {/* --- AIRPODS PRO (FIXED) --- */}
           <GridPromoBlock
-            sectionClass="airpods" // This class is defined in PromoCard.module.css
-            title="AirPods"
-            subtitle="A new kind of magic."
+            sectionClass="airpad" 
+            title="AirPods Pro" 
+            subtitle="Adaptive Audio. Now playing." 
             textColor="white"
-            ctaPrimary={{ text: 'Learn More', to: '/airpods' }}
-            ctaSecondary={{ text: 'Buy', to: '/shop/airpods' }}
+            ctaPrimary={{ text: 'Learn More', to: '/airpods-pro' }}
+            ctaSecondary={{ text: 'Buy', textColor:"white", to: '/shop/airpods-pro' }}
           />
 
           {/* --- TRADE IN --- */}
           <GridPromoBlock
-            sectionClass="tradein" // This class is defined in PromoCard.module.css
+            sectionClass="tradein" 
             title="Trade In"
             subtitle="Get $180-$650 in credit when you <br /> trade in iPhone 12 or higher.<sup>2</sup>"
             textColor="black"
@@ -115,7 +109,7 @@ const HomePage = () => {
 
           {/* --- CARD --- */}
           <GridPromoBlock
-            sectionClass="card" // This class is defined in PromoCard.module.css
+            sectionClass="card" 
             logoSrc="/images/icons/logo_apple_card.png"
             subtitle="Get up to 3% Daily Cash Back <br /> with every purchase."
             textColor="black"
@@ -124,9 +118,6 @@ const HomePage = () => {
           />
       </div>
 
-      {/* =================================================== */}
-      {/* 3. Other Page Components                        */}
-      {/* =================================================== */}
       <HeroSlider />
       <MediaCarousel />
 
