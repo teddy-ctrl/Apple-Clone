@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './HomeSubNav.module.css';
+import styles from './HomeSuBNav.module.css';
 
 // Data for the navigation items. This makes the component easy to manage.
 const navItems = [
