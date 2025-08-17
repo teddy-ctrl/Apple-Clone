@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './IpadPage.module.css';
+import styles from './Ipadpage.module.css';
 
 // Import all the necessary building blocks
 import IpadSubNav from '../../components/IpadSubNav/IpadSubNav';
